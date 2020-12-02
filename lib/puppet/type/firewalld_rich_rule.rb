@@ -36,6 +36,11 @@ Puppet::Type.newtype(:firewalld_rich_rule) do
     munge(&:to_s)
   end
 
+  newparam(:priority) do
+    desc 'Rule priority, it can be in the range of -32768 to 32767'
+    munge(&:to_s)
+  end
+
   newparam(:source) do
     desc 'Specify source address, this can be a string of the IP address or a hash containing other options'
     munge do |value|
